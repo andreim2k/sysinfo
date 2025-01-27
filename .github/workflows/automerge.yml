@@ -6,16 +6,19 @@ on:
   check_suite:
     types:
       - completed
-  status: {}
 jobs:
   automerge:
+    if: github.event.review.state == 'approved'
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
     steps:
-      - id: automerge
-        name: automerge
-        uses: "pascalgn/automerge-action@v0.16.4"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - uses: actions/checkout@v3
+      - uses: devmasx/merge-branch@master
+        name: Merging the PR from dev to master...
+        with:
+          type: now
+          from_branch: dev
+          target_branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
