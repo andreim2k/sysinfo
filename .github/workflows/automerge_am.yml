@@ -16,10 +16,11 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v3
-      - run: echo "Merging PR from dev to master...""
+      - run: echo "Merging PR from dev to master..."
       - uses: devmasx/merge-branch@master
         with:
           type: now
           from_branch: dev
           target_branch: main
           github_token: ${{ secrets.GITHUB_TOKEN }}
+      - run: echo "Merge completed!!!"
