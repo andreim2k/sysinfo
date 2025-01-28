@@ -1,0 +1,16 @@
+name: Repo Info
+
+on:
+  workflow_dispatch:
+jobs:
+  run-action:
+    runs-on: ubuntu-latest
+    name: Get Repo Info
+    steps:
+      - name: Use fr-platform/github-action-get-repo-info
+        uses: fr-platform/github-action-get-repo-info@v0.0.7
+        id: get-repo
+
+      - name: Echo Outputs
+        run: |
+          echo ${{ steps.get-repo }}
