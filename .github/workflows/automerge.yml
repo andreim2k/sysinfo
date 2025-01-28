@@ -7,14 +7,6 @@ on:
     types:
       - completed
 jobs:
-  env:
-    runs-on: [ubuntu-latest]
-    steps:
-      - name: Dump GitHub context
-        id: github_context_step
-        run: echo $JSON
-        env:
-          JSON: ${{ toJSON(github) }}
   automerge:
     if: (github.event.review.state == 'approved' && toJson(github.event.pull_request.requested_reviewers) == '[]')
     runs-on: ubuntu-latest
