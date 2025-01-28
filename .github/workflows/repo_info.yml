@@ -13,4 +13,4 @@ jobs:
 
       - name: Echo Outputs
         run: |
-          echo ${{ steps.get-repo }}
+          echo ${{ toJson(steps.get-repo) }}
