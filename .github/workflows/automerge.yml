@@ -1,24 +1,32 @@
 name: automerge
 on:
-  pull_request_review:
-    types:
-      - submitted
-  check_suite:
-    types:
-      - completed
+  workflow_dispatch:
+#  pull_request_review:
+#    types:
+#      - submitted
+#  check_suite:
+#    types:
+#      - completed
 jobs:
-  automerge:
-    if: github.event.review.state == 'approved'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
+  build:
+    runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v3
-      - uses: devmasx/merge-branch@master
-        name: Merging the PR from dev to master...
-        with:
-          type: now
-          from_branch: dev
-          target_branch: main
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Dump GitHub context
+        run: echo $JSON
+        env:
+          JSON: ${{ toJSON(github) }}
+#  automerge:
+#   if: github.event.review.state == 'approved'
+#   runs-on: ubuntu-latest
+#   permissions:
+#     contents: write
+#     pull-requests: write
+#   steps:
+#     - uses: actions/checkout@v3
+#     - uses: devmasx/merge-branch@master
+#       name: Merging the PR from dev to master...
+#       with:
+#         type: now
+#         from_branch: dev
+#         target_branch: main
+#         github_token: ${{ secrets.GITHUB_TOKEN }}
