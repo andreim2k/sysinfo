@@ -8,7 +8,7 @@ on:
       - completed
 jobs:
   automerge:
-    if: github.event.review.state == 'approved' && github.ref_protected == false
+    if: (github.event.review.state == 'approved' && github.ref_protected == false)
     runs-on: ubuntu-latest
     permissions:
       contents: write
