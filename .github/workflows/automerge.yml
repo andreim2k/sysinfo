@@ -16,7 +16,7 @@ jobs:
         env:
           JSON: ${{ toJSON(github) }}
   automerge:
-    if: (github.event.review.state == 'approved' && !github.event.pull_request.requested_reviewers)
+    if: (github.event.review.state == 'approved' && toJson(github.event.pull_request.requested_reviewers) == '[]')
     runs-on: ubuntu-latest
     permissions:
       contents: write
