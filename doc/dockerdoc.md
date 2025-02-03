@@ -57,7 +57,6 @@ Pentru a genera un container din fisierul imagine trebuie executata comanda run:
                    altfel docker va crea un string aleator si-l va aloca ca nume
                    container-ului pornit
 
-
 # Vizualizare containere
 
     - vizualizare continere care ruleaza
@@ -184,5 +183,3 @@ Aceasta comana va downloada imaginea si va porni executia containerului
         Start container:             sudo docker start
         Executie shell:              sudo docker exec -it <nume> sh
         Atasare la container:        sudo docker atach <nume>
-
--- TEST MESSAGE
