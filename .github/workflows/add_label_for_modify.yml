@@ -1,7 +1,7 @@
 name: Labeler
 on:
-  push:
-    branches: ["dev"]
+  pull_request:
+    branches: ["main"]
 jobs:
   assign-labels:
     name: Assign labels
