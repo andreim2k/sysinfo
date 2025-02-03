@@ -183,5 +183,3 @@ Aceasta comana va downloada imaginea si va porni executia containerului
         Start container:             sudo docker start
         Executie shell:              sudo docker exec -it <nume> sh
         Atasare la container:        sudo docker atach <nume>
-
---
