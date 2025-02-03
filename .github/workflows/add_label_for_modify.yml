@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: zattoo/labaler@v2
+      - uses: zattoo/labeler@v2
         with:
           token: ${{github.token}}
           source: ".labels"
