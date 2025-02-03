@@ -1,0 +1,14 @@
+name: Labeler
+on:
+  push:
+    branches: ["dev"]
+jobs:
+  assign-labels:
+    name: Assign labels
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: zattoo/project-recognition@v1
+        with:
+          token: ${{github.token}}
+          source: ".labels"
